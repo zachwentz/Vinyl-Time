@@ -127,7 +127,7 @@ while mainprogram:
 
 		record_num = 1
 		records = records()
-		counter = int(input(f"How many records do you want to listen to? Pick 0 - {len(records)-1}: "))
+		counter = int(input(f"How many records do you want to listen to? Pick 1 - {len(records)-1}: "))
 		while int(counter) not in range(0,len(records)):
 			counter = int(input(f'Please pick a number 1 - {len(records)}: '))
 			sys.stdout.write(up_one)
