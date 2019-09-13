@@ -16,9 +16,9 @@ def add_record():
 			records = {}
 
 	if artist in records.keys():
-		records[artist].update({album:{'Sides':sides,'Color':color,'Speed':speed,'Size':size}})
+		records[artist].update({album:{'Sides':int(sides),'Color':color,'Speed':int(speed),'Size':int(size)}})
 	else:
-		records[artist] = {album:{'Sides':sides,'Color':color,'Speed':speed,'Size':size}}
+		records[artist] = {album:{'Sides':int(sides),'Color':color,'Speed':int(speed),'Size':int(size)}}
 	
 	with open('record_collection.json','w') as outfile:
 		json.dump(records,outfile)
