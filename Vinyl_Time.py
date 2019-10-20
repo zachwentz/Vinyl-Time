@@ -1,4 +1,5 @@
 
+
 import random
 import os
 clear = lambda: os.system('cls')
@@ -10,6 +11,7 @@ import time
 import ctypes
 import sys
 from import_records import *
+from record_collection import *
 
 up_one = '\x1b[1A'
 erase = '\x1b[2K'
@@ -37,11 +39,12 @@ while mainprogram:
 	print('2: Remove a record?         ')
 	print('3: Create a playlist?       ')
 	print('4: Import Record Collection?')
-	print('5: Exit?                    ')
+	print('5: View Collection?         ')
+	print('6: Exit?                    ')
 
 	select = int(input('Selection:  '))
-	while not int(select) in range(0,6):
-		select = int(input('Your Selection Must Be 1-4:  '))
+	while not int(select) in range(0,7):
+		select = int(input('Your Selection Must Be 1-6:  '))
 
 	
 
@@ -49,7 +52,8 @@ while mainprogram:
 	delete = 'n'
 	playlst = 'n'
 	import_lst = 'n'
-
+	view = 'n'
+    
 	if select == 1:
 		update = 'y'
 	else:
@@ -66,9 +70,12 @@ while mainprogram:
 	if select == 4:
 		import_lst = 'y'
 	else:
-		import_lst = 'n'
-
+		import_lst = 'n' 
 	if select == 5:
+		view = 'y'
+	else:
+		view = 'n'
+	if select == 6:
 		#font = pygame.font.Font(None,40)
 		clear()
 		print('Good Bye')#.font.nFont = 16
@@ -118,6 +125,30 @@ while mainprogram:
 
 	clear()
 
+	while select == 5 and view[0] == 'y':
+		from record_collection import *
+
+		records = record_collection()
+		records.sort()
+		#clear()
+		count = 1
+		for i in records:
+			print(str(count) + ':'+ ' ' + i)
+			count += 1
+		#print(records)
+		#time.sleep(2)
+		view = input("Do you want to close the collection? ").lower()
+		if view.lower()[0] == 'y':
+			view = 'n'
+		else:
+			view = 'y'
+		while view[0].lower() not in ('y','n'):
+			view = input('You must select Yes or No!')
+			sys.stdout.write(up_one)
+			sys.stdout.write(erase)
+		clear()
+
+	clear()
 
 	'''
 	create a playlist
@@ -163,4 +194,5 @@ while mainprogram:
 				shuffle = False
 				playlst = 'n'
 				clear()
+
 
