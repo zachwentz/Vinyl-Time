@@ -10,7 +10,7 @@ def record_collection():
 
     for i in records.keys():
         for x in records[i].keys():
-            record_col.append(i + ' '+ '"' + x + '"' +  ' ' + 'Sides:' + ' ' + str(records[i][x]['Sides']) +  ' ' + 'Speed:' + ' ' + str(records[i][x]['Speed']) + ' ' + 'Size:'+ str(records[i][x]['Size']))
+            record_col.append(i + ' '+ '"' + x + '"' +  ' ' + 'Sides:' + ' ' + str(records[i][x]['Sides']) +  ' ' + 'Speed:' + ' ' + str(records[i][x]['Speed']) + ' ' + 'Size:'+ str(records[i][x]['Size']) + ' ' + 'Color:' + str(records[i][x]['Color']))
            
     
     #print(rec_lst)
